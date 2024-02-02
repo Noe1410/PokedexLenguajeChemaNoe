@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    background-color:rgb(238,21,21);
+}
+header{
+    background-color: red;
+    margin: 0;
+}
+.pokebalArriba{
+    background-color: rgb(240,240,240);
+}
+ul{
+    margin: 0;
+}
+nav li{
+    list-style:none;
+    display:inline-block;
+    padding: 9px 100px;
+    text-align: center;
+}
+#barra ul{
+    list-style-type: none;
+    text-align: center;
+ }
+#barra li{
+    font-size:smaller;
+}
+#barra li a {
+    text-decoration: none;  
+    color: rgb(255, 248, 248);   
+
+ }
+ .boton{
+    -webkit-border-radius: 50px;
+    background-color: rgb(240,240,240);
+    padding:4px;
+    margin: 5px;
+    
+ }
+ .img{
+    width: 35px;
+
+    
+ }
+
+
+
+
+
