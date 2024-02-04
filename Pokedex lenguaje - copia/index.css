@@ -1,47 +1,123 @@
 body{
     margin: 0;
-    background-color:rgb(238,21,21);
-}
-header{
-    background-color: red;
-    margin: 0;
-}
-.pokebalArriba{
-    background-color: rgb(240,240,240);
-}
-ul{
-    margin: 0;
-}
-nav li{
-    list-style:none;
-    display:inline-block;
-    padding: 9px 100px;
-    text-align: center;
-}
-#barra ul{
-    list-style-type: none;
-    text-align: center;
- }
-#barra li{
-    font-size:smaller;
-}
-#barra li a {
-    text-decoration: none;  
-    color: rgb(255, 248, 248);   
+    padding: 0;
 
- }
- .boton{
-    -webkit-border-radius: 50px;
-    background-color: rgb(240,240,240);
-    padding:4px;
-    margin: 5px;
-    
- }
- .img{
-    width: 35px;
+}          
 
+.buscador {
+    position: fixed;
+    top: 10px; 
+    left: 85%;
+    transform: translateX(-50%);
+    padding: 10px;
+}
+
+input{
+    outline: none;
+    box-sizing: border-box;
+    height: 60px;
+    width: 0;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #212F3C ;
+    border-radius: 50px;
+    padding: 0 20px;
+    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #212F3C ;
+    color: #212F3C ;
+    font-size: 16px;
+    transition: all .7s ease;
+}
+
+::placeholder{
+    color: #212F3C ;
+}
+
+.btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 0 10px #212F3C, inset 0 0 10px #212F3C;
+    background-color: #212F3C;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn img{
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 10% auto;
+    transition: all .7 ease;
+}
+
+.buscador:hover input{
+    width: 350px;
+}
+
+#pokeContainer{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 7%;
+}
+
+#pokeContainer .tarjeta{
+    flex: 15%;
+    padding: 0 20px;
+    margin-top: 50px;
+    margin: 1%;
+    padding: 1% 0 3% 0;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #212F3C ;
+    border-radius: 5%;
+    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #212F3C ;
+}
+
+.nombre{
+    font-family: Barlow;
+    font-size: 25px;
+    margin-right: 5%;
+
+}
+
+.id{
+    font-family: Barlow;
+    font-size: 15px;
+}
+
+.tipo{
+    font-family: Barlow;
+    font-size: 20px;
+    padding-right: 3%;
+    padding-bottom: 10px;
     
- }
+}
+
+.tarjeta h1:first-letter {
+    text-transform: uppercase;
+}
+
+@media only screen and(max-width: 600px){
+    #pokeContainer .tarjeta{
+        flex: 100%;
+        max-width: 100%;
+        margin-top: 50px;
+    }
+}
+
+@media only screen and(min-width: 768px){
+    #pokeContainer .tarjeta{
+        flex: 50%;
+        max-width: 100%;
+        margin-top: 50px;
+    }
+}
 
 
 
