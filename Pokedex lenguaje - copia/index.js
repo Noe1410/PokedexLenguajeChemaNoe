@@ -1,5 +1,5 @@
 const pokeContainer = document.getElementById("pokeContainer");
-let input = document.getElementById("input");
+const input = document.getElementById("input");
 
 class Pokemon {
     constructor(name, image, types, index) {
@@ -28,11 +28,10 @@ function pokeDraw(pokemons){
         div.innerHTML = `<img id="imagen${i + 1}" height="140px" src=${pokemons[i].image} />
                          <h1 class="id">#${pokemons[i].index.toString().padStart(3, '0')}</h1>
                          <h1 class="nombre" id="name${i + 1}">${pokemons[i].name}</h1>
-                         <span class="tipo" id="tipo1">${pokemons[i].types[0]}</span>
-                         <span class="tipo" id="tipo2">
+                         <span id="tipo">${pokemons[i].types[0]}</span>
+                         <span id="tipo">
                              ${pokemons[i].types[1] ? pokemons[i].types[1] : ''}
                          </span>`;
-    
         tarjeta.appendChild(div);
     }
     pokeContainer.appendChild(tarjeta);
@@ -53,7 +52,6 @@ input.addEventListener("keyup", filtro);
                 filtrado.push(pokemons[i]);
             }
         }
-        console.log(filtrado);
         pokeDraw(filtrado);
     } 
  }
@@ -97,3 +95,4 @@ async function getData(url){
     const json = await response.text();
     return JSON.parse(json);
 }
+

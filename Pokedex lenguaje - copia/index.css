@@ -1,13 +1,34 @@
 body{
     margin: 0;
     padding: 0;
+    background-image: url('img/pokedexcentro.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}        
 
-}          
+.cabecera{
+        padding-bottom: 20%;
+        background-image: url('img/pokedexarriba.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.8;
+}
+.pie{
+    padding-bottom: 20%;
+    background-image: url('img/pokedexabajo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
 
 .buscador {
     position: fixed;
-    top: 10px; 
-    left: 85%;
+    top: 43%; 
+    left: 89.6%;
     transform: translateX(-50%);
     padding: 10px;
 }
@@ -63,7 +84,7 @@ input{
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 7%;
+    padding: 7% 20.5% 3% 6%;
 }
 
 #pokeContainer .tarjeta{
@@ -72,7 +93,7 @@ input{
     margin-top: 50px;
     margin: 1%;
     padding: 1% 0 3% 0;
-    background-color: transparent;
+    background-color: #F2F3F4;
     outline: none;
     border: 2px solid #212F3C ;
     border-radius: 5%;
@@ -91,10 +112,10 @@ input{
     font-size: 15px;
 }
 
-.tipo{
-    font-family: Barlow;
+#tipo{
+    color: black;
     font-size: 20px;
-    padding-right: 3%;
+    padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
     
 }
