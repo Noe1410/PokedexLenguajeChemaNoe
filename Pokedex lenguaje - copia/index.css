@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: url('img/pokedexcentro.png');
+    background-image: url('img/fondo.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,16 +9,26 @@ body{
 }        
 
 .cabecera{
-        padding-bottom: 20%;
-        background-image: url('img/pokedexarriba.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0.8;
+    position: fixed;
+    background-image: url('https://coversgo.com/wp-content/uploads/2023/08/fondo-franjas-azules-formal-.png');
+    width: 100%;
+    margin-top: 2%;
+    padding: 3% 0 3% 0;        
+    background-size: cover;
+    background-position: center;        
+    background-repeat: no-repeat;
+    text-align: center;
+    opacity: 0.8;
 }
+
+#portada{
+    padding: 0% 2% 5% 2%;
+    opacity: 1;
+}
+
 .pie{
     padding-bottom: 20%;
-    background-image: url('img/pokedexabajo.png');
+    background-image: #212F3C;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,8 +37,8 @@ body{
 
 .buscador {
     position: fixed;
-    top: 43%; 
-    left: 89.6%;
+    top: 37%; 
+    left: 50%;
     transform: translateX(-50%);
     padding: 10px;
 }
@@ -36,7 +46,7 @@ body{
 input{
     outline: none;
     box-sizing: border-box;
-    height: 60px;
+    height: 40px;
     width: 0;
     background-color: transparent;
     outline: none;
@@ -54,11 +64,11 @@ input{
 }
 
 .btn {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     box-shadow: 0 0 10px #212F3C, inset 0 0 10px #212F3C;
     background-color: #212F3C;
     line-height: 80px;
@@ -66,6 +76,7 @@ input{
     text-align: center;
     cursor: pointer;
     transition: .5s;
+    opacity: 0.9;
 }
 
 .btn img{
@@ -84,7 +95,7 @@ input{
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    padding: 7% 20.5% 3% 6%;
+    padding: 35% 7% 3% 6%;
 }
 
 #pokeContainer .tarjeta{
@@ -98,6 +109,8 @@ input{
     border: 2px solid #212F3C ;
     border-radius: 5%;
     box-shadow: 0 0 10px #212F3C , inset 0 0 10px #212F3C ;
+    opacity: 0.95;
+    z-index: -1;
 }
 
 .nombre{
