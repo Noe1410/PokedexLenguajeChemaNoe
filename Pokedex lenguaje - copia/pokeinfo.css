@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:rgb(240,240,240);
+    text-align: center;
+    display:  flex;
+}
+#content{
+
+    width: 130px;
+    height: 600px;
+    background-color: blue;
+    
+}
+
+#container{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+#relleno{
+    background-color: brown;
+    width: 130px;
+    height: 600px;
+
+}
+#centro{
+    background-color: aqua;
+    width: 130px;
+    height: 600px;
+    text-align: center;
+}
