@@ -30,3 +30,10 @@ body{
     height: 600px;
     text-align: center;
 }
+.tabla{
+    width: 180px;
+}
+.barras_salud{
+    background-color: green;
+    width:(100/255);
+}
