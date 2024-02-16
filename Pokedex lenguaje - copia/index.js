@@ -23,15 +23,14 @@ initializePokemon();
 function pokeDraw(pokemons){
     const tarjeta = document.createDocumentFragment();
     for(let i = 0; i < pokemons.length; i++){
+        getColors();
         const div = document.createElement('div');
         div.className = 'tarjeta';
         div.innerHTML = `<img id="imagen${i + 1}" height="140px" src=${pokemons[i].image} />
                          <h1 class="id">#${pokemons[i].index.toString().padStart(3, '0')}</h1>
                          <h1 class="nombre" id="name${i + 1}">${pokemons[i].name}</h1>
-                         ${getColors(pokemons[i].types[0])}
-                         <span class="tipo">${pokemons[i].types[0]}</span>
-                         ${getColors(pokemons[i].types[1])}
-                         <span class="tipo">
+                         <span>${pokemons[i].types[0]}</span>
+                         <span>
                              ${pokemons[i].types[1] ? pokemons[i].types[1] : ''}
                          </span>`;
         tarjeta.appendChild(div);
@@ -56,12 +55,10 @@ input.addEventListener("keyup", filtro);
         pokeDraw(filtrado);
     } 
  }
- const tipoElements = document.getElementsByClassName('tipo');
+const tipoElement = document.querySelectorAll('span');
  function getColors (t){
-    console.log(t);
-    for (let i = 0; i < tipoElements.length; i++) {
-        const tipoElement = tipoElements[i];
-    switch (t) {
+    for (let i = 0; i < 151; i++) {
+    switch (pokemons[i].types[0]) {
         case "Planta":
             tipoElement.classList.add('planta');
             break;
@@ -129,10 +126,16 @@ input.addEventListener("keyup", filtro);
         case "Dragon":
             tipoElement.classList.add('dragon');
             break;
+
+        default:
+            tipoElement.classList.add('sintipo');
+            break;
         
     }
  }
-}
+} 
+
+
 
 async function getPokemon(id){
     const pokemonJson = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
