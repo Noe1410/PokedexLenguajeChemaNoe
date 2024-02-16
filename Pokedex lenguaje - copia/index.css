@@ -103,6 +103,10 @@ input{
     opacity: 0.95;
     z-index: -1;
 }
+.tarjeta :hover{
+    box-shadow: 30px 30px 30px rgb(0, 119, 255);
+    background-color: #027cf5;
+}
 
 .nombre{
     font-family: Barlow;
