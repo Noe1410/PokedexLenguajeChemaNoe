@@ -23,14 +23,13 @@ initializePokemon();
 function pokeDraw(pokemons){
     const tarjeta = document.createDocumentFragment();
     for(let i = 0; i < pokemons.length; i++){
-        getColors();
         const div = document.createElement('div');
         div.className = 'tarjeta';
         div.innerHTML = `<img id="imagen${i + 1}" height="140px" src=${pokemons[i].image} />
                          <h1 class="id">#${pokemons[i].index.toString().padStart(3, '0')}</h1>
                          <h1 class="nombre" id="name${i + 1}">${pokemons[i].name}</h1>
-                         <span>${pokemons[i].types[0]}</span>
-                         <span>
+                         <span class="${getColors(pokemons[i].types[0])}">${pokemons[i].types[0]}</span>
+                         <span class="${getColors(pokemons[i].types[1])}">
                              ${pokemons[i].types[1] ? pokemons[i].types[1] : ''}
                          </span>`;
         tarjeta.appendChild(div);
@@ -55,85 +54,85 @@ input.addEventListener("keyup", filtro);
         pokeDraw(filtrado);
     } 
  }
-const tipoElement = document.querySelectorAll('span');
  function getColors (t){
-    for (let i = 0; i < 151; i++) {
-    switch (pokemons[i].types[0]) {
-        case "Planta":
-            tipoElement.classList.add('planta');
-            break;
-
-        case "Fuego":
-            tipoElement.classList.add('fuego');
-            break;
-
-        case "Agua":
-            tipoElement.classList.add('agua');
-            break;
-
-        case "Electrico":
-            tipoElement.classList.add('electrico');
-            break;
-
-        case "Veneno":
-            tipoElement.classList.add('veneno');
-            break;
-
-        case "Volador":
-            tipoElement.classList.add('volador');
-            break;
-
-        case "Bicho":
-            tipoElement.classList.add('bicho');
-            break;
-
-        case "Normal":
-            tipoElement.classList.add('normal');
-            break;
-
-        case "Tierra":
-            tipoElement.classList.add('tierra');
-            break;
-
-        case "Hada":
-            tipoElement.classList.add('hada');
-            break;
-
-        case "Lucha":
-            tipoElement.classList.add('lucha');
-            break;
-
-        case "Psiquico":
-            tipoElement.classList.add('psiquico');
-            break;
-
-        case "Roca":
-            tipoElement.classList.add('roca');
-            break;
-
-        case "Acero":
-            tipoElement.classList.add('acero');
-            break;
-
-        case "Hielo":
-            tipoElement.classList.add('hielo');
-            break;
-
-        case "Fantasma":
-            tipoElement.classList.add('fantasma');
-            break;
-
-        case "Dragon":
-            tipoElement.classList.add('dragon');
-            break;
-
-        default:
-            tipoElement.classList.add('sintipo');
-            break;
-        
+    for(let i = 0; i < 17; i++){
+        switch (t) {
+            case "Planta":
+                console.log("funciona")
+                return 'planta';
+                break;
+    
+            case "Fuego":
+                return 'fuego';
+                break;
+    
+            case "Agua":
+                return 'agua';
+                break;
+    
+            case "Electrico":
+                return 'electrico';
+                break;
+    
+            case "Veneno":
+                return 'veneno';
+                break;
+    
+            case "Volador":
+                return 'volador';
+                break;
+    
+            case "Bicho":
+                return 'bicho';
+                break;
+    
+            case "Normal":
+                return 'normal';
+                break;
+    
+            case "Tierra":
+                return 'tierra';
+                break;
+    
+            case "Hada":
+                return 'hada';
+                break;
+    
+            case "Lucha":
+                return 'lucha';
+                break;
+    
+            case "Psiquico":
+                return 'psquico';
+                break;
+    
+            case "Roca":
+                return 'roca';
+                break;
+    
+            case "Acero":
+                return 'acero';
+                break;
+    
+            case "Hielo":
+                return 'hielo';
+                break;
+    
+            case "Fantasma":
+                return 'fantasma';
+                break;
+    
+            case "Dragon":
+                return 'dragon';
+                break;
+    
+            default:
+                return 'sintipo';
+                break;
+        }
     }
+    
  }
-} 
 
 
 
