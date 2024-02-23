@@ -70,7 +70,7 @@ input.addEventListener("keyup", filtro);
                 return 'agua';
                 break;
     
-            case "Electrico":
+            case "Eléctrico":
                 return 'electrico';
                 break;
     
@@ -102,8 +102,8 @@ input.addEventListener("keyup", filtro);
                 return 'lucha';
                 break;
     
-            case "Psiquico":
-                return 'psquico';
+            case "Psíquico":
+                return 'psiquico';
                 break;
     
             case "Roca":
@@ -122,7 +122,7 @@ input.addEventListener("keyup", filtro);
                 return 'fantasma';
                 break;
     
-            case "Dragon":
+            case "Dragón":
                 return 'dragon';
                 break;
     
