@@ -1,22 +1,392 @@
-@import url(cabecera.css);
-@import url(contaienr.css);
-@import url(darkMode.css);
-@import url(tipos.css);
-@import url(menu.css);
-@import url(filtroTipos.css);
-
-
-
 body{
     margin: 0;
     padding: 0;
-    background-image: url('../img/fondo.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     transition: 0.5s ease-in-out;
-}        
+} 
+
+/* CABECERA */
+.cabecera{
+    position: fixed;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.829);
+    width: 100%;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buscador {
+    display: flex;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+input{
+    box-sizing: border-box;
+    height: 40px;
+    width: 0;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #212F3C ;
+    border-radius: 50px;
+    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #212F3C ;
+    color: #212F3C ;
+    font-size: 16px;
+    transition: all .7s ease;
+}
+
+::placeholder{
+    color: #212F3C ;
+}
+
+.btn {
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 0 10px #212F3C, inset 0 0 10px #212F3C;
+    background-color: #212F3C;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .7s;
+    transform: translateY(-80%);
+}
+
+.btn img{
+    width: 70%;
+    height: auto;
+    margin: 10% auto;
+}
+
+.buscador:hover input{
+    width: 350px;
+}
+
+.buscador:hover .btn{
+    margin-left: 325px;
+}
+
+/* BOTON MODO OSCURO */
+.modoCL_OS input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+  }
+
+  .modoCL_OS *,
+  .modoCL_OS ::after,
+  .modoCL_OS ::before {
+    box-sizing: border-box;
+  }
+
+  .modoCL_OS .switch {
+    --width-of-switch: 3.5em;
+    --height-of-switch: 2em;
+    --size-of-icon: 1.4em;
+    --slider-offset: 0.3em;
+    position: relative;
+    width: var(--width-of-switch);
+    height: var(--height-of-switch);
+    display: inline-block;
+  }
+
+  .modoCL_OS .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f4f4f5;
+    transition: .4s;
+    border-radius: 30px;
+  }
+
+  .modoCL_OS .slider:before {
+    position: absolute;
+    content: "";
+    height: var(--size-of-icon,1.4em);
+    width: var(--size-of-icon,1.4em);
+    border-radius: 20px;
+    left: var(--slider-offset,0.3em);
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
+    ;
+   transition: .4s;
+  }
+
+  .modoCL_OS input:checked + .slider {
+    background-color: #303136;
+  }
+
+  .modoCL_OS input:checked + .slider:before {
+    left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
+    background: #303136;
+    box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+  }
+
+/* TIPOS */
+.sintipo{
+    color: black;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+    
+}
+
+.planta{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: #3EAF2E;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.fuego{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #F39C12  , inset 3px 0px 10px #F39C12;
+    background-color: #A93226 ;
+    color: #E5E8E8;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.agua{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: #5499C7;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.electrico{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: yellow;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.veneno{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: #9349F7;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.volador{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: grey;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.bicho{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: greenyellow;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.normal{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    color: black;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.tierra{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: brown;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.hada{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: pink;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.lucha{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: orange;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.psiquico{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: palevioletred;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.roca{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: burlywood;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.acero{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    color: black;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.hielo{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: skyblue;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.fantasma{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: darkmagenta;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+.dragon{
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    background-color: darkblue;
+    font-size: 20px;
+    padding: 3% 3% 3% 3%;
+    padding-bottom: 10px;
+}
+
+/* CONTAINER */
+#pokeContainer{
+    background-color: grey;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25% 7% 3% 6%;
+}
+
+#pokeContainer .tarjeta{
+    flex: 15%;
+    padding: 0 20px;
+    margin-top: 50px;
+    margin: 1%;
+    padding: 1% 0 3% 0;
+    background-color: #F2F3F4;
+    outline: none;
+    border: 2px solid #212F3C ;
+    border-radius: 5%;
+    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #212F3C ;
+    opacity: 0.95;
+}
+
+.nombre{
+    font-family: Barlow;
+    font-size: 25px;
+    margin-right: 5%;
+
+}
+
+.id{
+    font-family: Barlow;
+    font-size: 15px;
+}
+
+
+.tarjeta h1:first-letter {
+    text-transform: uppercase;
+}
+
+@media (max-width: 600px){
+    #pokeContainer .tarjeta{
+        flex: 100%;
+        max-width: 100%;
+        margin-top: 50px;
+    }
+    .buscador:hover input{
+        width: 150px;
+    }
+    
+    .buscador:hover .btn{
+        margin-left: 125px;
+    }
+    .btn {
+        width: 30px;
+        height: 30px;
+    }
+    input{
+        height: 20px;
+
+    }
+}
+
+@media only screen and(min-width: 768px){
+    #pokeContainer .tarjeta{
+        flex: 50%;
+        max-width: 100%;
+        margin-top: 50px;
+    }
+}
 
 
 
