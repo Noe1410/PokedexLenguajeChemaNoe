@@ -4,19 +4,29 @@ body{
     background-color:rgb(240,240,240);
     text-align: center;
     display:  flex;
+    font-family: 'Pokemon';
+}
+@font-face {
+    font-family: 'Pokemon';
+    src: url('Pokemon Hollow.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }
 #content{
-
     width: 130px;
     height: 600px;
     background-color: blue;
     
 }
 
-#container{
+#container1{
     text-align: center;
     display: flex;
     flex-wrap: wrap;
+
+}
+#container{
+display: inline;
 }
 #relleno{
     background-color: brown;
@@ -54,23 +64,41 @@ body{
     margin-left: 50px;
 }
 #vida{
-    background-color: green;
+    background-color: green ;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    margin-bottom: 40%;
 
 }
 #ataque{
     background-color: red;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    margin-bottom: 40%;
 }
 #Defensa{
     background-color: grey;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    margin-bottom: 40%;
 }
-#At esp{
+#Atesp{
     background-color: blue;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    margin-bottom: 40%;
 }
-#Def esp{
+#Defesp{
     background-color: blueviolet;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    margin-bottom: 40%;
 }
 #Velocidad{
     background-color: gold;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    margin-bottom: 40%;
    
 }
 
