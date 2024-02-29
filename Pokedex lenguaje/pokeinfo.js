@@ -69,11 +69,17 @@ async function getTypes(pokeType){
     return types;
 }
 
-async function getDescription(id){
-    const descripJson = await getData(`https://pokeapi.co/api/v2/characteristic/${id}`);
-    return descripJson.descriptions[5].description;
+async function getDescription(id) {
+        const speciesData = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+        console.log(speciesData)
+        const descriptionEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === 'es');
+        const lines = descriptionEntry.flavor_text.split('\n');
+        const description = lines.join('\n');
+
+        return description;
 
 }
+
 
 async function getTranslatedTypeName(name){
     const obj = await getData(`https://pokeapi.co/api/v2/type/${name}`);
