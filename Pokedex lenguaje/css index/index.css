@@ -31,6 +31,7 @@ body{
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
+    padding-top: 5%;
 }
 
 input{
@@ -79,6 +80,10 @@ input{
 }
 
 /* BOTON MODO OSCURO */
+.modoCL_OS{
+    padding-left: 90%;
+    position: absolute;
+}
 .modoCL_OS input[type="checkbox"] {
     visibility: hidden;
     display: none;
@@ -150,77 +155,144 @@ input{
     font-size: 20px;
     border-radius: 15%;
     box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: #3EAF2E;
+    animation: plantaAnimacion 3s linear infinite alternate both;
     font-size: 20px;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
+}
+@keyframes plantaAnimacion{
+    0%{
+        background: #008202;
+    }
+    50%{
+        background: #06BF09;
+    }
+    100%{
+        background: #0CEA10;
+    }
 }
 
 .fuego{
     font-size: 20px;
     border-radius: 15%;
     box-shadow: 0 0 20px #F39C12  , inset 3px 0px 10px #F39C12;
-    background-color: #A93226 ;
+    animation: fuegoAnimacion 3s linear infinite alternate both;
     color: #E5E8E8;
     font-size: 20px;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes fuegoAnimacion{
+    0%{
+        background: #EC0404;
+    }
+    50%{
+        background: #FF9B00;
+    }
+    100%{
+        background: #FF6400;
+    }
+}
 .agua{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: #5499C7;
-    font-size: 20px;
+    box-shadow: 0 0 20px #5499C7  , inset 3px 0px 10px #5499C7;
+    animation: aguaAnimacion 3s linear infinite alternate both;   
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes aguaAnimacion{
+    0%{
+        background: #1300FF;
+    }
+    50%{
+        background: #00C1FF;
+    }
+    100%{
+        background: #0083FF;
+    }
+}
 .electrico{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: yellow;
-    font-size: 20px;
+    box-shadow: 0 0 20px yellow  , inset 3px 0px 10px yellow;
+    animation: electricoAnimacion 3s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes electricoAnimacion{
+    0%{
+        background: #ECFF00;
+    }
+    50%{
+        background: #FFC900;
+    }
+    100%{
+        background: #00FFFB;
+    }
+}
 .veneno{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: #9349F7;
-    font-size: 20px;
+    box-shadow: 0 0 20px #9349F7  , inset 3px 0px 10px #9349F7;
+    animation: venenoAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes venenoAnimacion{
+    0%{
+        background: #8300FF;
+    }
+    50%{
+        background: #C100FF;
+    }
+    100%{
+        background: #5B109A;
+    }
+}
 .volador{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: grey;
+    box-shadow: 0 0 20px grey  , inset 3px 0px 10px grey;
+    animation: voladorAnimacion 4s linear infinite alternate both;
     font-size: 20px;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes voladorAnimacion{
+    0%{
+        background: #E4E4E4;
+    }
+    50%{
+        background: #B9B9B8;
+    }
+    100%{
+        background: #737373;
+    }
+}
 .bicho{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: greenyellow;
-    font-size: 20px;
+    box-shadow: 0 0 20px greenyellow  , inset 3px 0px 10px greenyellow;
+    animation: bichoAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes bichoAnimacion{
+    0%{
+        background: #46DC28;
+    }
+    50%{
+        background: #37F02E;
+    }
+    100%{
+        background: #53C44D;
+    }
+}
 .normal{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
+    box-shadow: 0 0 20px black  , inset 3px 0px 10px black;
     color: black;
     font-size: 20px;
     padding: 3% 3% 3% 3%;
@@ -230,93 +302,174 @@ input{
 .tierra{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: brown;
-    font-size: 20px;
+    box-shadow: 0 0 20px brown  , inset 3px 0px 10px brown;
+    animation: tierraAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes tierraAnimacion{
+    0%{
+        background: #854005;
+    }
+    50%{
+        background: #AB6F3E;
+    }
+    100%{
+        background: #BF5904;
+    }
+}
 .hada{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: pink;
-    font-size: 20px;
+    box-shadow: 0 0 20px rgb(204, 112, 127)  , inset 3px 0px 10px rgb(238, 125, 143);
+    animation: hadaAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes hadaAnimacion{
+    0%{
+        background: #FA22C6;
+    }
+    50%{
+        background: #FF69DB;
+    }
+    100%{
+        background: #FF94E5;
+    }
+}
 .lucha{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: orange;
-    font-size: 20px;
+    box-shadow: 0 0 20px #F03535  , inset 3px 0px 10px #F03535;
+    animation: luchaAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes luchaAnimacion{
+    0%{
+        background: #F03535;
+    }
+    50%{
+        background: #B10B0B;
+    }
+    100%{
+        background: #E31515;
+    }
+}
 .psiquico{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: palevioletred;
-    font-size: 20px;
+    box-shadow: 0 0 20px #B00CA4  , inset 3px 0px 10px #B00CA4;
+    animation: psiquicoAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes psiquicoAnimacion{
+    0%{
+        background: #B00CA4;
+    }
+    50%{
+        background: #CB49C2;
+    }
+    100%{
+        background: #BA02AC;
+    }
+}
 .roca{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: burlywood;
-    font-size: 20px;
+    box-shadow: 0 0 20px #90765E  , inset 3px 0px 10px #90765E;
+    animation: rocaAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes rocaAnimacion{
+    0%{
+        background: #7D420A;
+    }
+    50%{
+        background: #9E7146;
+    }
+    100%{
+        background: #90765E;
+    }
+}
 .acero{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    color: black;
-    font-size: 20px;
+    box-shadow: 0 0 20px #888888  , inset 3px 0px 10px #888888;
+    animation: aceroAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes aceroAnimacion{
+    0%{
+        background: #888888;
+    }
+    50%{
+        background: #ABCACB;
+    }
+    100%{
+        background: #A4A4A4;
+    }
+}
 .hielo{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: skyblue;
-    font-size: 20px;
+    box-shadow: 0 0 20px skyblue  , inset 3px 0px 10px skyblue;
+    animation: hieloAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes hieloAnimacion{
+    0%{
+        background: #2FF9FF;
+    }
+    50%{
+        background: #63FAFF;
+    }
+    100%{
+        background: #9FFCFF;
+    }
+}
 .fantasma{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: darkmagenta;
-    font-size: 20px;
+    box-shadow: 0 0 20px #BB89FF  , inset 3px 0px 10px #BB89FF;
+    animation: fantasmaAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes fantasmaAnimacion{
+    0%{
+        background: #6F05FF;
+    }
+    50%{
+        background: #9D55FF;
+    }
+    100%{
+        background: #BB89FF;
+    }
+}
 .dragon{
     font-size: 20px;
     border-radius: 15%;
-    box-shadow: 0 0 20px #239B56  , inset 3px 0px 10px #239B56;
-    background-color: darkblue;
-    font-size: 20px;
+    box-shadow: 0 0 20px darkblue  , inset 3px 0px 10px darkblue;
+    animation: dragonAnimacion 4s linear infinite alternate both;
     padding: 3% 3% 3% 3%;
     padding-bottom: 10px;
 }
-
+@keyframes dragonAnimacion{
+    0%{
+        background: #0008FF;
+    }
+    50%{
+        background: #5459FF;
+    }
+    100%{
+        background: #2F34CC;
+    }
+}
 /* CONTAINER */
 #pokeContainer{
     background-color: grey;
