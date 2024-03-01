@@ -54,27 +54,27 @@ function drawStats(pokemons){
                                 <th>Valor</th>
                             </tr>
                             <tr>
-                                <td><font color="#53D906">Vida</font></td>
+                                <td><font color="#53D906">Vida (${pokemons[0].stats[0].base_stat})</font></td>
                                 <td><progress value="${pokemons[0].stats[0].base_stat}" max="255"/></td>
                             </tr>
                             <tr>
-                                <td><font color="#E71C1C">Ataque</font></td>
+                                <td><font color="#E71C1C">Ataque (${pokemons[0].stats[1].base_stat})</font></td>
                                 <td><progress value="${pokemons[0].stats[1].base_stat}" max="255"/></td>
                             </tr>
                             <tr>
-                                <td><font color="#ACACAC">Defensa</font></td>
+                                <td><font color="#ACACAC">Defensa (${pokemons[0].stats[2].base_stat})</font></td>
                                 <td><progress value="${pokemons[0].stats[2].base_stat}" max="255"/></td>
                             </tr>
                             <tr>
-                                <td><font color="#0008FE">Ataque Especial</font></td>
+                                <td><font color="#0008FE">Ataque Especial (${pokemons[0].stats[3].base_stat})</font></td>
                                 <td><progress value="${pokemons[0].stats[3].base_stat}" max="255"/></td>
                             </tr>
                             <tr>
-                                <td><font color="#C501E0">Defensa Especial</font></td>
+                                <td><font color="#C501E0">Defensa Especial (${pokemons[0].stats[4].base_stat})</font></td>
                                 <td><progress value="${pokemons[0].stats[4].base_stat}" max="255"/></td>
                             </tr>
                             <tr>
-                                <td><font color="#2197FF">Velocidad</font></td>
+                                <td><font color="#2197FF">Velocidad (${pokemons[0].stats[5].base_stat})</font></td>
                                 <td><progress value="${pokemons[0].stats[5].base_stat}" max="255"/></td>
                             </tr>`;
     containerStats.appendChild(statTable);

@@ -150,6 +150,10 @@ ul{
     display: flex;
 }
 
+.evo h1:first-letter {
+    text-transform: uppercase;
+}
+
 .cabecera{
 
     position: fixed;
@@ -174,6 +178,7 @@ ul{
     position: absolute;
     transition: transform 0.9s ease-in-out;
 }
+
 @keyframes mover-imagen {
     0% {
       left: 0%;
@@ -192,10 +197,4 @@ ul{
 #portada:hover {
     transform: rotate(360deg);
     animation: mover-imagen 2s linear infinite ;
-}
-
-@media only screen and(min-width: 1158px){
-    #container {
-        padding: 5% 40% 3% 10%;
-    }
 }

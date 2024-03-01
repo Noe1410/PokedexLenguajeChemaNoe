@@ -464,11 +464,11 @@ input{
     border-radius: 5%;
     box-shadow: 0 0 10px #626262, inset 0 0 10px #626262;
     opacity: 0.95;
-    transition: transform 0.3s ease; /* Agregamos transición para suavizar el cambio de tamaño */
+    transition: transform 0.3s ease;
 }
 
 #pokeContainer .tarjeta:hover {
-    transform: scale(1.05); /* Escala del 105% cuando se pasa el mouse */
+    transform: scale(1.05);
 }
 
 .nombre{
