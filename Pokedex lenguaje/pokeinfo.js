@@ -80,14 +80,15 @@ function drawStats(pokemons){
     containerStats.appendChild(statTable);
 }
 
-function drawChainEvolution(pokemons){
+async function drawChainEvolution(pokemons){
     const evo= document.createDocumentFragment();
         for(let i = 0; i < pokemons[0].chainEvolution.length; i++){
             const div = document.createElement('div'); 
             div.className = 'evo';
             div.innerHTML = `<div>
-                            <h1>${pokemons[0].chainEvolution[i]}</h1>
-                            </div>`;
+                                <img id="imagen" src="${ await getImg(pokemons[0].chainEvolution[i])}" width=300px>
+                                <h1>${pokemons[0].chainEvolution[i]}</h1>
+                             </div>`;
         evo.appendChild(div);
         }
     containerEvolution.appendChild(evo);
@@ -95,7 +96,6 @@ function drawChainEvolution(pokemons){
 
 async function getPokemon(id){
     const pokemonJson = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
-
     const name = pokemonJson.name;
     const image = pokemonJson.sprites.other.showdown.front_default;
     const types = await getTypes(pokemonJson.types);
@@ -106,6 +106,11 @@ async function getPokemon(id){
     const chainEvolution = await getChainEvolution(id);
     const stats = pokemonJson.stats;
     return new Pokemon(name, image, types, index, peso, altura, descrip, stats, chainEvolution);
+}
+
+async function getImg(name){
+    const pokemonJson = await getData(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    return pokemonJson.sprites.front_default;
 }
 
 async function getTypes(pokeType){
@@ -173,10 +178,7 @@ async function getChainEvolution(id) {
             }
         }
     }
-
     verChain(chainData.chain);
-    console.log("Cadena evolutiva del Pokémon:");
-    console.log(arrayEvolution);
     return arrayEvolution;
 }
 
