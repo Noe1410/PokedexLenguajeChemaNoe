@@ -23,6 +23,8 @@ async function initializePokemon() {
         pokemons.push(await getPokemon(Id));
         drawInfo(pokemons);
         drawStats(pokemons);
+        drawChainEvolution(pokemons);   
+        
 }
 
 initializePokemon();
@@ -79,7 +81,16 @@ function drawStats(pokemons){
 }
 
 function drawChainEvolution(pokemons){
-    const evo = document.createElement('div'); 
+    const evo= document.createDocumentFragment();
+        for(let i = 0; i < pokemons[0].chainEvolution.length; i++){
+            const div = document.createElement('div'); 
+            div.className = 'evo';
+            div.innerHTML = `<div>
+                            <h1>${pokemons[0].chainEvolution[i]}</h1>
+                            </div>`;
+        evo.appendChild(div);
+        }
+    containerEvolution.appendChild(evo);
 }
 
 async function getPokemon(id){
