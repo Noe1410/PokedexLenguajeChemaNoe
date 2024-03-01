@@ -24,6 +24,7 @@ body{
     align-content: center;
     flex-direction: row;
     align-items: center;
+    z-index: 1;
 
 }
 
@@ -473,6 +474,7 @@ input{
     }
 }
 /* CONTAINER */
+
 #pokeContainer{
     background: linear-gradient(90deg,rgb(21, 0, 255),rgb(44, 106, 0),rgb(185, 208, 35),rgb(255, 0, 0));
     animation: fondo 20s ease infinite;
@@ -483,6 +485,7 @@ input{
     flex-wrap: wrap;
     padding: 25% 7% 3% 6%;
 }
+
 @keyframes fondo{
     0%{
         background-position: 0 50%;
@@ -494,7 +497,7 @@ input{
         background-position: 0 50%;
     }
 }
-#pokeContainer .tarjeta{
+#pokeContainer .tarjeta {
     flex: 15%;
     padding: 0 20px;
     margin-top: 50px;
@@ -502,10 +505,15 @@ input{
     padding: 1% 0 3% 0;
     background-color: #F2F3F4;
     outline: none;
-    border: 2px solid #212F3C ;
+    border: 2px solid #212F3C;
     border-radius: 5%;
-    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #212F3C ;
+    box-shadow: 0 0 10px #212F3C, inset 0 0 10px #212F3C;
     opacity: 0.95;
+    transition: transform 0.3s ease; /* Agregamos transición para suavizar el cambio de tamaño */
+}
+
+#pokeContainer .tarjeta:hover {
+    transform: scale(1.05); /* Escala del 105% cuando se pasa el mouse */
 }
 
 .nombre{
@@ -548,11 +556,60 @@ input{
     }
 }
 
+@media only screen and (max-width: 600px) {
+    #pokeContainer .tarjeta {
+        flex: 100%;
+        max-width: 100%;
+        margin-top: 50px;
+    }
+    .sintipo,
+    .planta,
+    .fuego,
+    .agua,
+    .electrico,
+    .veneno,
+    .volador,
+    .bicho,
+    .normal,
+    .tierra,
+    .hada,
+    .lucha,
+    .psiquico,
+    .roca,
+    .acero,
+    .hielo,
+    .fantasma,
+    .dragon {
+        font-size: 16px;
+    }
+}
+
 @media only screen and(min-width: 768px){
     #pokeContainer .tarjeta{
         flex: 50%;
         max-width: 100%;
         margin-top: 50px;
+    }
+
+    .sintipo,
+    .planta,
+    .fuego,
+    .agua,
+    .electrico,
+    .veneno,
+    .volador,
+    .bicho,
+    .normal,
+    .tierra,
+    .hada,
+    .lucha,
+    .psiquico,
+    .roca,
+    .acero,
+    .hielo,
+    .fantasma,
+    .dragon {
+        font-size: 24px;
     }
 }
 

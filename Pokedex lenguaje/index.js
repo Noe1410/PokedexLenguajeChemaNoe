@@ -1,5 +1,6 @@
 const pokeContainer = document.getElementById("pokeContainer");
 const input = document.getElementById("input");
+const enlace = document.getElementsByClassName('tarjeta');
 
 class Pokemon {
     constructor(name, image, types, index) {
@@ -23,18 +24,26 @@ initializePokemon();
 function pokeDraw(pokemons){
     const tarjeta = document.createDocumentFragment();
     for(let i = 0; i < pokemons.length; i++){
-        const div = document.createElement('div');
-        div.className = 'tarjeta';
-        div.innerHTML = `<img id="imagen${i + 1}" height="140px" src=${pokemons[i].image} />
+        const a = document.createElement('a');
+        a.className = 'tarjeta';
+        a.dataset.id = pokemons[i].index;
+        a.innerHTML = `<div>
+                        <img id="imagen${i + 1}" height="140px" src=${pokemons[i].image} />
                          <h1 class="id">#${pokemons[i].index.toString().padStart(3, '0')}</h1>
                          <h1 class="nombre" id="name${i + 1}">${pokemons[i].name}</h1>
                          <span class="${getColors(pokemons[i].types[0])}">${pokemons[i].types[0]}</span>
                          <span class="${getColors(pokemons[i].types[1])}">
                              ${pokemons[i].types[1] ? pokemons[i].types[1] : ''}
-                         </span>`;
-        tarjeta.appendChild(div);
+                         </span>
+                        </div>`;
+        tarjeta.appendChild(a);
     }
     pokeContainer.appendChild(tarjeta);
+
+    const tarjetas = document.querySelectorAll('.tarjeta');
+    tarjetas.forEach(tarjeta => {
+        tarjeta.addEventListener('click', enlaceInfo);
+    });
 }
 
 input.addEventListener("keyup", filtro);
@@ -54,11 +63,22 @@ input.addEventListener("keyup", filtro);
         pokeDraw(filtrado);
     } 
  }
+
+ for (let i = 0; i < enlace.length; i++) {
+    enlace[i].addEventListener("click", enlaceInfo);
+}
+
+function enlaceInfo(e){
+    const pokemonId = this.dataset.id;
+    const url = `pokeinfo.html?id=${pokemonId}`;
+    window.location.href = url;
+}
+
+
  function getColors (t){
     for(let i = 0; i < 17; i++){
         switch (t) {
             case "Planta":
-                console.log("funciona")
                 return 'planta';
                 break;
     

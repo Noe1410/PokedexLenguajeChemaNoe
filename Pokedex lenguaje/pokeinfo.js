@@ -1,5 +1,8 @@
 const containerInfoinfo = document.getElementById("containerInfo");
 const foto = document.getElementById("foto");
+const containerStats = document.getElementById("containerStats");
+const urlParams = new URLSearchParams(window.location.search);
+const Id = urlParams.get('id');
 
 class Pokemon {
     constructor(name, image, types, index, peso, altura, descrip, stats) {
@@ -11,14 +14,13 @@ class Pokemon {
         this. altura = altura;
         this. descrip = descrip;
         this.stats = stats;
-
     }
 }
-
 const pokemons = [];
 async function initializePokemon() {
-        pokemons.push(await getPokemon(6));
+        pokemons.push(await getPokemon(Id));
         drawInfo(pokemons);
+        drawStats(pokemons);
 }
 
 initializePokemon();
@@ -40,6 +42,34 @@ function drawInfo(pokemons) {
     containerInfo.appendChild(info);
 }
 
+function drawStats(pokemons){
+    const stat = document.createElement('div');
+    stat.className = 'stats';
+    stat.innerHTML = `<div id="grafica">
+                            <div id="vida"> vida</div>  
+                            <div id="ataque"> ataque</div>  
+                            <div id="Defensa"> defensa</div>  
+                            <div id="Atesp"> at.esp</div>  
+                            <div id="Defesp"> def.esp</div>  
+                            <div id="Velocidad"> velocidad</div>                                            
+                        </div>
+                        <div id="grafica">
+                            <div >
+                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/>
+                            </div>  
+                            <div >
+                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/></div>  
+                            <div >
+                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/></div>  
+                            <div >
+                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/></div>  
+                            <div >
+                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/></div>  
+                            <div id="statVelocidad"></div>                                            
+                        </div>`;
+    containerStats.appendChild(stat);
+}
+
 async function getPokemon(id){
     const pokemonJson = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
@@ -51,8 +81,7 @@ async function getPokemon(id){
     const altura = pokemonJson.height;
     const descrip = await getDescription(id);
     const stats = pokemonJson.stats;
-
-    return new Pokemon(name, image, types, index, peso, altura, descrip);
+    return new Pokemon(name, image, types, index, peso, altura, descrip, stats);
 }
 
 async function getTypes(pokeType){
@@ -71,13 +100,10 @@ async function getTypes(pokeType){
 
 async function getDescription(id) {
         const speciesData = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
-        console.log(speciesData)
-        const descriptionEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === 'es');
-        const lines = descriptionEntry.flavor_text.split('\n');
-        const description = lines.join('\n');
-
-        return description;
-
+        const description = speciesData.flavor_text_entries.find(entry => entry.language.name === 'es');
+        const lines = description.flavor_text.split('\n');
+        const d= lines.join('\n');
+        return d;
 }
 
 
