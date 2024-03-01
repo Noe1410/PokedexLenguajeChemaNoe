@@ -196,12 +196,13 @@ async function getData(url){
     return JSON.parse(json);
 }
 /////
-const colorSwitch = document.querySelector('#switch input[type="checkbox"]');
-            function cambiaTema(ev){
-                if(ev.target.checked){
-                    document.documentElement.setAttribute('tema', 'light');
-                } else {
-                    document.documentElement.setAttribute('tema', 'dark');
-                }
-            }
-            colorSwitch.addEventListener('change', cambiaTema);
+
+var toggle = document.getElementById('container');
+var poke = document.getElementById('pokeContainer');
+var elemento = document.getElementsByClassName("tarjeta"); 
+
+toggle.onclick = function(){
+    toggle.classList.toggle('active');
+    poke.classList.toggle('active');
+    elemento.classList('active')
+}

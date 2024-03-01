@@ -66,81 +66,41 @@ input{
 ::placeholder{
     color: #212F3C ;
 }
-
-
-
-
-
 /* BOTON MODO OSCURO */
-:root{
-    --color-fuente: black;
-    --color-fondo: white;
-}
-[tema="claro"]{
-    --color-fuente: white;
-    --color-fondo: black;
-}
-.modoCL_OS{
-    margin-left: 90%;
+#container{
+    background-color: white;
+    border-radius: 20px;
     position: absolute;
-}
-.modoCL_OS input[type="checkbox"] {
-    visibility: hidden;
-    display: none;
-}
-  
-  .modoCL_OS *,
-  .modoCL_OS ::after,
-  .modoCL_OS ::before {
-    box-sizing: border-box;
-  }
-
-  .modoCL_OS .switch {
-    --width-of-switch: 3.5em;
-    --height-of-switch: 2em;
-    --size-of-icon: 1.4em;
-    --slider-offset: 0.3em;
-    position: relative;
-    width: var(--width-of-switch);
-    height: var(--height-of-switch);
-    display: inline-block;
-  }
-
-  .modoCL_OS .slider {
-    position: absolute;
+    margin-left: 80%;
+    width: 80px;
+    height: 40px;
+    box-shadow: inset 4px 4px 6px grey, inset -4px -4px 6px grey;
     cursor: pointer;
+}
+.toggle{
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #f4f4f5;
-    transition: .4s;
-    border-radius: 30px;
-  }
+    width: 40px;
+    height: 40px;
+    transform: scale(.7);
+    background-color: linear-gradient(145deg, white,black);
+    border-radius: 25px;box-shadow: 3px 3px 8px grey,-3px -3px 8px grey;
+}
+#container.active .toggle{
+    left: 40px;
+}
+#pokeContainer.active{
+    background-color: #101010;
+    color: white;
+}
 
-  .modoCL_OS .slider:before {
-    position: absolute;
-    content: "";
-    height: var(--size-of-icon,1.4em);
-    width: var(--size-of-icon,1.4em);
-    border-radius: 20px;
-    left: var(--slider-offset,0.3em);
-    top: 50%;
-    transform: translateY(-50%);
-    background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
-    ;
-   transition: .4s;
-  }
+#pokeContainer .tarjeta.active{
+    box-shadow: 0 0 10px #fdfeff, inset 0 0 10px #ffffff;
 
-  .modoCL_OS input:checked + .slider {
-    background-color: #303136;
-  }
+}
 
-  .modoCL_OS input:checked + .slider:before {
-    left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
-    background: #303136;
-    box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
-  }
+
   /* TIPOS */
 .sintipo{
     color: black;
@@ -472,7 +432,7 @@ input{
 /* CONTAINER */
 
 #pokeContainer{
-    background: linear-gradient(80deg,rgb(246, 246, 246),rgb(133, 133, 133),rgb(39, 39, 39));
+    background: rgb(204, 204, 204);
     background-size: 400% 400%;
     position:static;
     text-align: center;
@@ -503,7 +463,7 @@ input{
     outline: none;
     border: 2px solid #212F3C;
     border-radius: 5%;
-    box-shadow: 0 0 10px #212F3C, inset 0 0 10px #212F3C;
+    box-shadow: 0 0 10px #eaff00, inset 0 0 10px #eaff00;
     opacity: 0.95;
     transition: transform 0.3s ease; /* Agregamos transición para suavizar el cambio de tamaño */
 }
