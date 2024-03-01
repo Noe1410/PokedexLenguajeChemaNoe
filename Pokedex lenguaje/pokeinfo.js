@@ -193,3 +193,13 @@ async function getData(url){
     const json = await response.text();
     return JSON.parse(json);
 }
+
+
+var toggle = document.getElementById('container-btn');
+var body = document.querySelector('body');
+var cont = document.getElementById('container')
+toggle.onclick = function(){
+    toggle.classList.toggle('active');
+    body.classList.toggle('active');
+    cont.classList.toggle('active');
+}
