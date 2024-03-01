@@ -9,16 +9,17 @@ body{
 } 
 
 /* CABECERA */
+
 .cabecera{
     position: fixed;
     display: flex;
-    background-color: rgba(255, 255, 255, 0.829);
     width: 100%;
-    height: 30%;
+    height: 20%;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.593);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat:space;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: center;
@@ -27,7 +28,10 @@ body{
     z-index: 1;
 
 }
-
+#portada{
+    margin-left: 45%;
+    position: absolute;
+}
 .buscador {
     display: flex;
     align-content: flex-end;
@@ -83,6 +87,14 @@ input{
 }
 
 /* BOTON MODO OSCURO */
+:root{
+    --color-fuente: black;
+    --color-fondo: white;
+}
+[tema="claro"]{
+    --color-fuente: white;
+    --color-fondo: black;
+}
 .modoCL_OS{
     padding-left: 90%;
     position: absolute;
@@ -90,8 +102,8 @@ input{
 .modoCL_OS input[type="checkbox"] {
     visibility: hidden;
     display: none;
-  }
-
+}
+  
   .modoCL_OS *,
   .modoCL_OS ::after,
   .modoCL_OS ::before {
@@ -144,8 +156,7 @@ input{
     background: #303136;
     box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
   }
-
-/* TIPOS */
+  /* TIPOS */
 .sintipo{
     color: black;
     font-size: 20px;
@@ -476,8 +487,7 @@ input{
 /* CONTAINER */
 
 #pokeContainer{
-    background: linear-gradient(90deg,rgb(21, 0, 255),rgb(44, 106, 0),rgb(185, 208, 35),rgb(255, 0, 0));
-    animation: fondo 20s ease infinite;
+    background: linear-gradient(80deg,rgb(246, 246, 246),rgb(133, 133, 133),rgb(39, 39, 39));
     background-size: 400% 400%;
     position:static;
     text-align: center;
@@ -503,7 +513,8 @@ input{
     margin-top: 50px;
     margin: 1%;
     padding: 1% 0 3% 0;
-    background-color: #F2F3F4;
+    background-color: var(--color-fondo);
+    color:var(--color-fuente);
     outline: none;
     border: 2px solid #212F3C;
     border-radius: 5%;
