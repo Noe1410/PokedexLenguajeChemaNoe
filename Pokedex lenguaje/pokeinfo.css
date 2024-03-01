@@ -1,10 +1,10 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(240,240,240);
+    background: linear-gradient(80deg,rgb(246, 246, 246),rgb(133, 133, 133),rgb(124, 123, 123));
     text-align: center;
     display: flex;
-    font-family: 'Pokemon';
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
@@ -30,7 +30,9 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: #BFC9CA;
+    background-color: #a09f9fe1;
+    box-shadow: 0 0 10px #212F3C,  0 0 10px #212F3C;
+
 }
 
 #containerStats{
@@ -117,20 +119,49 @@ ul{
     list-style: none;
     text-align: left;
 }
-.cabecera{
-    position: fixed;
-    background-color: white;
-    width: 100%;
-    height: 1%;
-    padding: 0% 0 2.4% 0;        
-    background-size: cover;
-    background-position: center;        
-    background-repeat: no-repeat;
-    text-align: left;
-}
 
+.cabecera{
+
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.593);
+    background-size: cover;
+    background-position: center;
+    background-repeat:space;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    z-index: 1;
+    text-align: left;
+    padding-top: 1%;
+
+}
 #portada{
-    opacity: 1;
+    margin-left: 0.6%;
+    position: absolute;
+    transition: transform 0.9s ease-in-out;
+}
+@keyframes mover-imagen {
+    0% {
+      left: 0%;
+    }
+    50% {
+      left: -2%;
+    }
+    100%{
+        left: 0%;
+    }
+  }
+#portada2{
+    position: absolute;
+}
+  
+#portada:hover {
+    transform: rotate(360deg);
+    animation: mover-imagen 2s linear infinite ;
 }
 
 @media only screen and(min-width: 1158px){
