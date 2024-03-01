@@ -116,6 +116,7 @@ async function getTranslatedTypeName(name){
 
 async function getDescription(id) {
         const speciesData = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+        console.log(speciesData)
         const description = getTranslatedDescription(id);
         return description;
 }
@@ -129,53 +130,12 @@ async function getTranslatedDescription(id){
     }
 }
 
-/* async function getChainEvolution(id) {
-    const speciesData = await getData(`https://pokeapi.co/api/v2/evolution-chain/${id}/`);
-    console.log(speciesData)
-    return speciesData;
-} */
-
+/* 78 cadenas evolutivas */
 async function getChainEvolution(id) {
-    const speciesData = await getData(`https://pokeapi.co/api/v2/evolution-chain/${id}/`);
-    
-    // Verificar si hay datos de evolución
-    if (!speciesData.chain) {
-        console.log("No hay datos de evolución para este Pokémon.");
-        return;
-    }
-    
-    // Inicializar una lista para almacenar los nombres de los Pokémon en la cadena evolutiva
-    const pokemonNames = [];
-    
-    // Obtener el nombre del Pokémon inicial de la cadena evolutiva
-    const initialPokemon = speciesData.chain.species.name;
-    pokemonNames.push(initialPokemon);
-    
-    // Verificar si hay evoluciones
-    if (speciesData.chain.evolves_to.length > 0) {
-        // Iterar sobre las evoluciones
-        speciesData.chain.evolves_to.forEach(evolution => {
-            // Obtener el nombre del Pokémon en la evolución
-            const pokemonName = evolution.species.name;
-            pokemonNames.push(pokemonName);
-            
-            // Verificar si hay evoluciones adicionales
-            if (evolution.evolves_to.length > 0) {
-                // Iterar sobre las evoluciones adicionales si las hay
-                evolution.evolves_to.forEach(additionalEvolution => {
-                    // Obtener el nombre del Pokémon en la evolución adicional
-                    const additionalPokemonName = additionalEvolution.species.name;
-                    pokemonNames.push(additionalPokemonName);
-                });
-            }
-        });
-    }
-    
-    // Imprimir los nombres de los Pokémon en la cadena evolutiva en la consola
-    console.log("Nombres de Pokémon en la cadena evolutiva:", pokemonNames);
-    
-    // Devolver la lista de nombres de los Pokémon en la cadena evolutiva
-    return pokemonNames;
+    const speciesData = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+    const chainData = await getData(speciesData.url);
+    console.log(chainData)
+    return speciesData;
 }
 
 
