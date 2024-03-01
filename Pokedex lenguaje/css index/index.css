@@ -57,7 +57,7 @@ input{
     outline: none;
     border: 2px solid #212F3C ;
     border-radius: 50px;
-    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #0285ff ;
+    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #545454 ;
     color: #212F3C ;
     font-size: 16px;
     transition: all .10s ease;
@@ -89,6 +89,7 @@ input{
 }
 #container.active .toggle{
     left: 40px;
+    
 }
 #pokeContainer.active{
     background-color: #101010;
@@ -463,7 +464,7 @@ input{
     outline: none;
     border: 2px solid #212F3C;
     border-radius: 5%;
-    box-shadow: 0 0 10px #eaff00, inset 0 0 10px #eaff00;
+    box-shadow: 0 0 10px #626262, inset 0 0 10px #626262;
     opacity: 0.95;
     transition: transform 0.3s ease; /* Agregamos transición para suavizar el cambio de tamaño */
 }
