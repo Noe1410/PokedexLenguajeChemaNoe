@@ -136,19 +136,40 @@ async function getSpecies(id){
 }
 
 async function getChainEvolution(id) {
-    const speciesData1 = await getSpecies(id);
-    const chainData1 = await getData(speciesData1.evolution_chain.url);
-    const ev1 = chainData1.chain.evolves_to[0].species.name;
-    const speciesData2 = await getSpecies(ev1);
-    const chainData2 = await getData(speciesData2.evolution_chain.url);
-    console.log(chainData2);
-    const ev2 = chainData2.chain.evolves_to[0].species.name;
+    const speciesData = await getSpecies(id);
 
-    console.log(ev1);
-    console.log(ev2);
-    return ev1, ev2;
+    if (!speciesData || !speciesData.evolution_chain || !speciesData.evolution_chain.url) {
+        console.log("No se encontraron datos de cadena evolutiva para este Pokémon.");
+        return [];
+    }
+
+    const evolutionChainUrl = speciesData.evolution_chain.url;
+
+    const evolutionChainData = await getData(evolutionChainUrl);
+
+    if (!evolutionChainData || !evolutionChainData.chain) {
+        console.log("No se encontraron datos de cadena evolutiva para este Pokémon.");
+        return [];
+    }
+    
+    const evolutionChain = [];
+    
+    function traverseChain(chain) {
+        const currentSpeciesName = chain.species.name;
+        
+        evolutionChain.push(currentSpeciesName);
+        
+        if (chain.evolves_to && chain.evolves_to.length > 0) {
+            chain.evolves_to.forEach(evolution => {
+                traverseChain(evolution);
+            });
+        }
+    }
+    traverseChain(evolutionChainData.chain);
+    console.log("Cadena evolutiva del Pokémon:");
+    console.log(evolutionChain);
+    return evolutionChain;
 }
-
 
 async function getData(url){
     const response = await fetch(url);
