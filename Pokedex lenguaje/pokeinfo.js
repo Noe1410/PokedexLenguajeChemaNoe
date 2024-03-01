@@ -26,7 +26,7 @@ async function initializePokemon() {
 initializePokemon();
 
 function drawInfo(pokemons) {
-    foto.innerHTML = `<img id="imagen" src="${pokemons[0].image}" width=500px>`;
+    foto.innerHTML = `<img id="imagen" src="${pokemons[0].image}" width=300px>`;
     const info = document.createElement('div');
     info.className = 'info';
     info.innerHTML = `<ul id="lista1">
@@ -43,43 +43,50 @@ function drawInfo(pokemons) {
 }
 
 function drawStats(pokemons){
-    const stat = document.createElement('div');
-    stat.className = 'stats';
-    stat.innerHTML = `<div id="grafica">
-                            <div id="vida"> vida</div>  
-                            <div id="ataque"> ataque</div>  
-                            <div id="Defensa"> defensa</div>  
-                            <div id="Atesp"> at.esp</div>  
-                            <div id="Defesp"> def.esp</div>  
-                            <div id="Velocidad"> velocidad</div>                                            
-                        </div>
-                        <div id="grafica">
-                            <div >
-                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/>
-                            </div>  
-                            <div >
-                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/></div>  
-                            <div >
-                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/></div>  
-                            <div >
-                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/></div>  
-                            <div >
-                            <progress value="${pokemons[0].stats[0].base_stat}" max="255"/></div>  
-                            <div id="statVelocidad"></div>                                            
-                        </div>`;
-    containerStats.appendChild(stat);
+    const statTable = document.createElement('table');
+    statTable.className = 'stats';
+    statTable.innerHTML = `<tr>
+                                <th>Atributo</th>
+                                <th>Valor</th>
+                            </tr>
+                            <tr>
+                                <td>Vida</td>
+                                <td><progress value="${pokemons[0].stats[0].base_stat}" max="255"/></td>
+                            </tr>
+                            <tr>
+                                <td>Ataque</td>
+                                <td><progress value="${pokemons[0].stats[1].base_stat}" max="255"/></td>
+                            </tr>
+                            <tr>
+                                <td>Defensa</td>
+                                <td><progress value="${pokemons[0].stats[2].base_stat}" max="255"/></td>
+                            </tr>
+                            <tr>
+                                <td>Ataque Especial</td>
+                                <td><progress value="${pokemons[0].stats[3].base_stat}" max="255"/></td>
+                            </tr>
+                            <tr>
+                                <td>Defensa Especial</td>
+                                <td><progress value="${pokemons[0].stats[4].base_stat}" max="255"/></td>
+                            </tr>
+                            <tr>
+                                <td>Velocidad</td>
+                                <td><progress value="${pokemons[0].stats[5].base_stat}" max="255"/></td>
+                            </tr>`;
+    containerStats.appendChild(statTable);
 }
 
 async function getPokemon(id){
     const pokemonJson = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
     const name = pokemonJson.name;
-    const image = pokemonJson.sprites.front_default;
+    const image = pokemonJson.sprites.other.showdown.front_default;
     const types = await getTypes(pokemonJson.types);
     const index = pokemonJson.game_indices[3].game_index;
     const peso = pokemonJson.weight;
     const altura = pokemonJson.height;
     const descrip = await getDescription(id);
+    const chainEvolution = await getChainEvolution(id);
     const stats = pokemonJson.stats;
     return new Pokemon(name, image, types, index, peso, altura, descrip, stats);
 }
@@ -98,15 +105,6 @@ async function getTypes(pokeType){
     return types;
 }
 
-async function getDescription(id) {
-        const speciesData = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
-        const description = speciesData.flavor_text_entries.find(entry => entry.language.name === 'es');
-        const lines = description.flavor_text.split('\n');
-        const d= lines.join('\n');
-        return d;
-}
-
-
 async function getTranslatedTypeName(name){
     const obj = await getData(`https://pokeapi.co/api/v2/type/${name}`);
     for(let name of obj.names){
@@ -115,6 +113,71 @@ async function getTranslatedTypeName(name){
         }
     }
 }
+
+async function getDescription(id) {
+        const speciesData = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+        const description = getTranslatedDescription(id);
+        return description;
+}
+
+async function getTranslatedDescription(id){
+    const obj = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+    for(let descrip of obj.flavor_text_entries){
+        if(descrip.language.name == 'es'){
+            return descrip.flavor_text;
+        }
+    }
+}
+
+/* async function getChainEvolution(id) {
+    const speciesData = await getData(`https://pokeapi.co/api/v2/evolution-chain/${id}/`);
+    console.log(speciesData)
+    return speciesData;
+} */
+
+async function getChainEvolution(id) {
+    const speciesData = await getData(`https://pokeapi.co/api/v2/evolution-chain/${id}/`);
+    
+    // Verificar si hay datos de evolución
+    if (!speciesData.chain) {
+        console.log("No hay datos de evolución para este Pokémon.");
+        return;
+    }
+    
+    // Inicializar una lista para almacenar los nombres de los Pokémon en la cadena evolutiva
+    const pokemonNames = [];
+    
+    // Obtener el nombre del Pokémon inicial de la cadena evolutiva
+    const initialPokemon = speciesData.chain.species.name;
+    pokemonNames.push(initialPokemon);
+    
+    // Verificar si hay evoluciones
+    if (speciesData.chain.evolves_to.length > 0) {
+        // Iterar sobre las evoluciones
+        speciesData.chain.evolves_to.forEach(evolution => {
+            // Obtener el nombre del Pokémon en la evolución
+            const pokemonName = evolution.species.name;
+            pokemonNames.push(pokemonName);
+            
+            // Verificar si hay evoluciones adicionales
+            if (evolution.evolves_to.length > 0) {
+                // Iterar sobre las evoluciones adicionales si las hay
+                evolution.evolves_to.forEach(additionalEvolution => {
+                    // Obtener el nombre del Pokémon en la evolución adicional
+                    const additionalPokemonName = additionalEvolution.species.name;
+                    pokemonNames.push(additionalPokemonName);
+                });
+            }
+        });
+    }
+    
+    // Imprimir los nombres de los Pokémon en la cadena evolutiva en la consola
+    console.log("Nombres de Pokémon en la cadena evolutiva:", pokemonNames);
+    
+    // Devolver la lista de nombres de los Pokémon en la cadena evolutiva
+    return pokemonNames;
+}
+
 
 async function getData(url){
     const response = await fetch(url);

@@ -1,10 +1,15 @@
-body{
+body {
     margin: 0;
     padding: 0;
-    background-color:rgb(240,240,240);
+    background-color: rgb(240,240,240);
     text-align: center;
-    display:  flex;
+    display: flex;
     font-family: 'Pokemon';
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
 }
 @font-face {
     font-family: 'Pokemon';
@@ -14,22 +19,31 @@ body{
 }
 
 #container {
-    padding: 5% 7% 3% 30%;
+    margin-top: 10%;
+    padding: 5% 5% 5% 5%;
+    border-radius: 10%;
+    margin-bottom: 10%;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    align-content: stretch;
-    justify-content: space-around;
+    align-content: center;
+    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    background-color: #BFC9CA;
 }
 
-#foto{
+#containerStats{
+    display: flex;
+}
+
+/* #foto{
     background-color: #BFC9CA;
     border-radius: 90px;
     text-align: center;
     box-shadow: 0 0 10px #212F3C , inset 0 0 10px #212F3C ;
     
-}
+} */
 #info{
     background-color: brown;
 }
@@ -41,91 +55,61 @@ body{
     align-items: center;
     justify-content: center;
 }
-#grafica{
-    background-color: #5D6D7E;
-    padding: 1% 1% 1% 1%;
+.stats {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px; 
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
+
+.stats th, .stats td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.stats th {
+    background-color: #f2f2f2;
+}
+
+.stats tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.stats tr:hover {
+    background-color: #ddd;
+}
+
 
 
 #vida{
     background-color: #5D6D7E ;
     padding-bottom: 10%;
-    border-radius: 15%;
 }
 #ataque{
     background-color: #5D6D7E;
     padding-bottom: 10%;
-    border-radius: 15%;
+
 }
 #Defensa{
     background-color: #5D6D7E;
     padding-bottom: 10%;
-    border-radius: 15%;
+
 }
 #Atesp{
     background-color: #5D6D7E;
     padding-bottom: 10%;
-    border-radius: 15%;
+
 }
 #Defesp{
     background-color: #5D6D7E;
     padding-bottom: 10%;
-    border-radius: 15%;
+
 }
 #Velocidad{
     background-color: #5D6D7E;
-    padding-bottom: 10%;
-    border-radius: 15%;  
-}
-
-
-#statvida{
-    background-color: #CCD1D1 ;
-    margin-bottom: 5px;
-    padding-bottom: 10%;
-    border-radius: 50px;
-    height: 28px;
-    width: 200px;
-}
-#statataque{
-    background-color: #CCD1D1;
-    margin-bottom: 5px;
-    padding-bottom: 10%;
-    border-radius: 50px;
-    height: 28px;
-    width: 200px;
-}
-#statDefensa{
-    background-color: #CCD1D1;
-    margin-bottom: 5px;
-    padding-bottom: 10%;
-    border-radius: 50px;
-    height: 28px;
-    width: 200px;
-}
-#statAtesp{
-    background-color: #CCD1D1;
-    margin-bottom: 5px;
-    padding-bottom: 10%;
-    border-radius: 50px;
-    height: 28px;
-    width: 200px;
-}
-#statDefesp{
-    background-color: #CCD1D1;
-    margin-bottom: 5px;
-    padding-bottom: 10%;
-    border-radius: 50px;
-    height: 27px;
-    width: 200px;
-}
-#statVelocidad{
-    background-color: #CCD1D1;
-    margin-bottom: 5px;
-    padding-bottom: 10%;
-    border-radius: 50px;
-    height: 27px;
-    width: 200px;
+    padding-bottom: 10%;  
 }
 
 
@@ -147,4 +131,10 @@ ul{
 
 #portada{
     opacity: 1;
+}
+
+@media only screen and(min-width: 1158px){
+    #container {
+        padding: 5% 40% 3% 10%;
+    }
 }
