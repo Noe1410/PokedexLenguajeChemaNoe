@@ -207,5 +207,6 @@ toggle.onclick = function(){
     Array.from(elemento).forEach(elemento => {
         elemento.classList.toggle('active');
     });
+
 }
 
