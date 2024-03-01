@@ -94,6 +94,8 @@ async function drawChainEvolution(pokemons){
     containerEvolution.appendChild(evo);
 }
 
+
+
 async function getPokemon(id){
     const pokemonJson = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const name = pokemonJson.name;
