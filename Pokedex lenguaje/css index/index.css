@@ -32,59 +32,43 @@ body{
     margin-left: 45%;
     position: absolute;
 }
+#portada2{
+    margin-left: 37%;
+    position: absolute;
+}
+#portada3{
+    margin-left: 53%;
+    position: absolute;
+}
 .buscador {
     display: flex;
     align-content: flex-end;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    padding-top: 5%;
 }
 
 input{
     box-sizing: border-box;
-    height: 40px;
-    width: 0;
+    margin-left: 41%;
     background-color: transparent;
+    height: 40px;
     outline: none;
     border: 2px solid #212F3C ;
     border-radius: 50px;
-    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #212F3C ;
+    box-shadow: 0 0 10px #0285ff , inset 0 0 10px #0285ff ;
     color: #212F3C ;
     font-size: 16px;
-    transition: all .7s ease;
+    transition: all .10s ease;
 }
 
 ::placeholder{
     color: #212F3C ;
 }
 
-.btn {
-    width: 60px;
-    height: 60px;
-    box-shadow: 0 0 10px #212F3C, inset 0 0 10px #212F3C;
-    background-color: #212F3C;
-    line-height: 80px;
-    border-radius: 50%;
-    text-align: center;
-    cursor: pointer;
-    transition: .7s;
-    transform: translateY(-80%);
-}
 
-.btn img{
-    width: 70%;
-    height: auto;
-    margin: 10% auto;
-}
 
-.buscador:hover input{
-    width: 350px;
-}
 
-.buscador:hover .btn{
-    margin-left: 325px;
-}
 
 /* BOTON MODO OSCURO */
 :root{
@@ -96,7 +80,7 @@ input{
     --color-fondo: black;
 }
 .modoCL_OS{
-    padding-left: 90%;
+    margin-left: 90%;
     position: absolute;
 }
 .modoCL_OS input[type="checkbox"] {
