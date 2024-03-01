@@ -116,7 +116,6 @@ async function getTranslatedTypeName(name){
 
 async function getDescription(id) {
         const speciesData = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
-        console.log(speciesData)
         const description = getTranslatedDescription(id);
         return description;
 }
@@ -130,12 +129,24 @@ async function getTranslatedDescription(id){
     }
 }
 
-/* 78 cadenas evolutivas */
-async function getChainEvolution(id) {
+
+async function getSpecies(id){
     const speciesData = await getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
-    const chainData = await getData(speciesData.url);
-    console.log(chainData)
     return speciesData;
+}
+
+async function getChainEvolution(id) {
+    const speciesData1 = await getSpecies(id);
+    const chainData1 = await getData(speciesData1.evolution_chain.url);
+    const ev1 = chainData1.chain.evolves_to[0].species.name;
+    const speciesData2 = await getSpecies(ev1);
+    const chainData2 = await getData(speciesData2.evolution_chain.url);
+    console.log(chainData2);
+    const ev2 = chainData2.chain.evolves_to[0].species.name;
+
+    console.log(ev1);
+    console.log(ev2);
+    return ev1, ev2;
 }
 
 
