@@ -31,12 +31,16 @@ body{
 #portada{
     margin-left: 45%;
     position: absolute;
+    transition: transform 0.5s ease-in-out;
+
 }
 #portada2{
     margin-left: 44%;
     position: absolute;
 }
-
+  #portada:hover {
+    transform: rotate(360deg);
+  }
 .buscador {
     display: flex;
     align-content: flex-end;
@@ -553,6 +557,7 @@ input{
         flex: 100%;
         max-width: 100%;
         margin-top: 50px;
+        
     }
     .sintipo,
     .planta,
