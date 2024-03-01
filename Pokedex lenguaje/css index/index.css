@@ -57,7 +57,7 @@ input{
     outline: none;
     border: 2px solid #212F3C ;
     border-radius: 50px;
-    box-shadow: 0 0 10px #0285ff , inset 0 0 10px #0285ff ;
+    box-shadow: 0 0 10px #212F3C , inset 0 0 10px #0285ff ;
     color: #212F3C ;
     font-size: 16px;
     transition: all .10s ease;

@@ -204,5 +204,7 @@ var elemento = document.getElementsByClassName("tarjeta");
 toggle.onclick = function(){
     toggle.classList.toggle('active');
     poke.classList.toggle('active');
-    elemento.classList('active')
+    Array.from(elemento).forEach(elemento => {
+        elemento.classList.toggle('active');
+    });
 }
